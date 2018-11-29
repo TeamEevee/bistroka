@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 
 const mapStateToProps = store => {
   return {
-    productList: store.productReducer.productList
+    productList: store.productReducer.productList,
+    orderList: store.orderReducer.orderList
   }
 }
 const mapDispatchToProps = dispatch => {
@@ -78,7 +79,9 @@ class Makimono extends Component {
     return (
       <div>
         <Navigation/>
+        <h3>Items in cart: {Object.keys(this.props.orderList).length}</h3>
         <button><Link to='/checkout'>Checkout</Link></button>
+
         <h1>Makimono</h1>
         <h2>Tempura Rolls</h2>
         {tempuraRolls}
